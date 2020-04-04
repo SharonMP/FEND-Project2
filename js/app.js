@@ -24,7 +24,28 @@
  * Start Helper Functions
  * 
 */
+function createNavigation() {
+  const sections = document.getElementsByTagName('section');
 
+  const navs = document.getElementsByTagName('nav');
+  const navUls = navs[0].getElementsByTagName('ul');
+  const navUl = navUls[0];
+
+  for (const section of sections) {
+    // Reference: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+    const navContent = section.dataset.nav;
+    const idValue = navContent.toLowerCase().split(' ').join('');
+
+    const a = document.createElement('a');
+    const aTextNode = document.createTextNode(navContent);
+    a.appendChild(aTextNode);
+    a.href = "#" + idValue;
+
+    const li = document.createElement('li');
+    li.appendChild(a);
+    navUl.appendChild(li);
+  }
+}
 
 
 /**
@@ -32,7 +53,11 @@
  * Begin Main Functions
  * 
 */
-alert("Hello world!");
+document.addEventListener('DOMContentLoaded', function () {
+  createNavigation();
+});
+
+
 
 // build the nav
 
