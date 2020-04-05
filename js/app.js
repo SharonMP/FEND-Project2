@@ -24,6 +24,34 @@
  * Start Helper Functions
  * 
 */
+
+function addNewSection() {
+  const currentSections = document.getElementsByTagName('section');
+  const numSections = currentSections.length;
+
+  const pNode = document.createElement('p');
+  const pTextNode = document.createTextNode("Some new content.");
+  pNode.appendChild(pTextNode);
+
+  const h2Node = document.createElement('h2');
+  const h2TextNode = document.createTextNode("Section " + (numSections + 1));
+  h2Node.appendChild(h2TextNode);
+
+  const divNode = document.createElement('div');
+  divNode.appendChild(h2Node);
+  divNode.appendChild(pNode);
+  divNode.classList.add("landing__container")
+
+  const sectionNode = document.createElement('section');
+  sectionNode.appendChild(divNode);
+  sectionNode.id = "section" + (numSections + 1);
+  sectionNode.dataset.nav = "Section " + (numSections + 1);
+
+  const mainNodes = document.getElementsByTagName('main');
+  const mainNode = mainNodes[0];
+  mainNode.appendChild(sectionNode);
+}
+
 function createNavigation() {
   const sections = document.getElementsByTagName('section');
 
@@ -54,6 +82,7 @@ function createNavigation() {
  * 
 */
 document.addEventListener('DOMContentLoaded', function () {
+  addNewSection();
   createNavigation();
 });
 
