@@ -13,28 +13,21 @@
  * 
 */
 
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+const activeClass = 'active__class';
+const menuLink = '.menu__link';
+const section = 'section';
+const sectionNamePrefix = 'Section ';
 
 function addNewSection() {
-  const currentSections = document.getElementsByTagName('section');
+  const currentSections = document.getElementsByTagName(section);
   const numSections = currentSections.length;
 
   const pNode = document.createElement('p');
-  const pTextNode = document.createTextNode("Some new content.");
+  const pTextNode = document.createTextNode('Some new content.');
   pNode.appendChild(pTextNode);
 
   const h2Node = document.createElement('h2');
-  const h2TextNode = document.createTextNode("Section " + (numSections + 1));
+  const h2TextNode = document.createTextNode(sectionNamePrefix + (numSections + 1));
   h2Node.appendChild(h2TextNode);
 
   const divNode = document.createElement('div');
@@ -42,10 +35,10 @@ function addNewSection() {
   divNode.appendChild(pNode);
   divNode.classList.add("landing__container")
 
-  const sectionNode = document.createElement('section');
+  const sectionNode = document.createElement(section);
   sectionNode.appendChild(divNode);
-  sectionNode.id = "section" + (numSections + 1);
-  sectionNode.dataset.nav = "Section " + (numSections + 1);
+  sectionNode.id = section + (numSections + 1);
+  sectionNode.dataset.nav = sectionNamePrefix + (numSections + 1);
 
   const mainNodes = document.getElementsByTagName('main');
   const mainNode = mainNodes[0];
@@ -53,7 +46,7 @@ function addNewSection() {
 }
 
 function createNavigation() {
-  const sections = document.getElementsByTagName('section');
+  const sections = document.getElementsByTagName(section);
 
   const navs = document.getElementsByTagName('nav');
   const navUls = navs[0].getElementsByTagName('ul');
@@ -68,7 +61,7 @@ function createNavigation() {
     const aTextNode = document.createTextNode(navContent);
     a.appendChild(aTextNode);
     a.href = "#" + idValue;
-    a.className = ".menu__link";
+    a.className = menuLink;
 
     const li = document.createElement('li');
     li.appendChild(a);
@@ -77,18 +70,18 @@ function createNavigation() {
 }
 
 function addScrolling() {
-  const navLinks = document.getElementsByClassName('.menu__link');
+  const navLinks = document.getElementsByClassName(menuLink);
   for (const navLink of navLinks) {
     navLink.addEventListener('click', function (event) {
       const sectionId = this.getAttribute('href').substring(1);
       const sectionElement = document.getElementById(sectionId);
 
       // Remove and add the CSS class
-      const elementsWithActiveClass = document.getElementsByClassName('active__class');
+      const elementsWithActiveClass = document.getElementsByClassName(activeClass);
       for (const element of elementsWithActiveClass) {
-        element.classList.remove('active__class');
+        element.classList.remove(activeClass);
       }
-      sectionElement.classList.add('active__class');
+      sectionElement.classList.add(activeClass);
 
       // Scroll into view
       sectionElement.scrollIntoView({behavior: 'smooth'});
@@ -98,38 +91,8 @@ function addScrolling() {
   }
 }
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
 document.addEventListener('DOMContentLoaded', function () {
   addNewSection();
   createNavigation();
   addScrolling();
 });
-
-
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
