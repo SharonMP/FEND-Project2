@@ -68,6 +68,7 @@ function createNavigation() {
     const aTextNode = document.createTextNode(navContent);
     a.appendChild(aTextNode);
     a.href = "#" + idValue;
+    a.className = ".menu__link";
 
     const li = document.createElement('li');
     li.appendChild(a);
@@ -75,6 +76,27 @@ function createNavigation() {
   }
 }
 
+function addScrolling() {
+  const navLinks = document.getElementsByClassName('.menu__link');
+  for (const navLink of navLinks) {
+    navLink.addEventListener('click', function (event) {
+      const sectionId = this.getAttribute('href').substring(1);
+      const sectionElement = document.getElementById(sectionId);
+
+      // Remove and add the CSS class
+      const elementsWithActiveClass = document.getElementsByClassName('active__class');
+      for (const element of elementsWithActiveClass) {
+        element.classList.remove('active__class');
+      }
+      sectionElement.classList.add('active__class');
+
+      // Scroll into view
+      sectionElement.scrollIntoView({behavior: 'smooth'});
+
+      event.preventDefault();
+    });
+  }
+}
 
 /**
  * End Helper Functions
@@ -84,6 +106,7 @@ function createNavigation() {
 document.addEventListener('DOMContentLoaded', function () {
   addNewSection();
   createNavigation();
+  addScrolling();
 });
 
 
