@@ -91,8 +91,29 @@ function addScrolling() {
   }
 }
 
+function changeNavbarMenuState(state) {
+  const navBarElement = document.getElementsByClassName('navbar__menu')[0];
+  navBarElement.style.display = state;
+}
+
+function hideNavigationAfterScroll() {
+  let timeoutValue = null;
+  document.addEventListener('scroll', function () {
+    // Once scroll resumes, show the navbar menu and clear the timeout value
+    if (timeoutValue != null) {
+      changeNavbarMenuState('block');
+      clearTimeout(timeoutValue);
+    }
+    // Set timeout to 1 second and hide navbar menu
+    timeoutValue = setTimeout(function() {
+      changeNavbarMenuState('none');
+    }, 1000);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   addNewSection();
   createNavigation();
   addScrolling();
+  hideNavigationAfterScroll();
 });

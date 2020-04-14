@@ -17,3 +17,7 @@ For specific, detailed instructions, look at the project instructions in the Uda
 * https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 * https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 * https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+* https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+* https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearTimeout
+* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
+* https://www.w3schools.com/jsref/met_win_cleartimeout.asp
