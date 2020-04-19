@@ -16,3 +16,8 @@
 * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearTimeout
 * https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
 * https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+* https://www.w3schools.com/howto/howto_js_active_element.asp
+* https://alligator.io/js/getboundingclientrect/
+* https://www.quirksmode.org/mobile/viewports.html
+* https://knowledge.udacity.com/questions/85408
+* https://knowledge.udacity.com/questions/124306

@@ -209,6 +209,10 @@ section.active__class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+li.active__class {
+    background-color: silver;
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
